@@ -1,0 +1,404 @@
+/* ------------------------------
+   GENERAL
+------------------------------ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #222222;
+    line-height: 1.6;
+}
+
+
+/* ------------------------------
+   NAVIGATION
+------------------------------ */
+
+header {
+    width: 100%;
+    border-bottom: 1px solid #eeeeee;
+    background: #ffffff;
+}
+
+.navbar {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px 30px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333333;
+    font-size: 15px;
+}
+
+.nav-links a:hover {
+    color: #555555;
+}
+
+
+/* ------------------------------
+   HERO
+------------------------------ */
+
+.hero {
+    max-width: 1100px;
+    min-height: 600px;
+    margin: auto;
+    padding: 100px 30px;
+
+    display: flex;
+    align-items: center;
+}
+
+.hero-text {
+    max-width: 700px;
+}
+
+.small-text {
+    font-size: 14px;
+    letter-spacing: 3px;
+    color: #777777;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: 64px;
+    line-height: 1.05;
+    margin-bottom: 20px;
+}
+
+.hero h3 {
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #555555;
+}
+
+.hero p {
+    max-width: 600px;
+    color: #666666;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+
+    background: #222222;
+    color: white;
+
+    text-decoration: none;
+    border-radius: 5px;
+
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #555555;
+}
+
+
+/* ------------------------------
+   SECTIONS
+------------------------------ */
+
+.section {
+    max-width: 1100px;
+    margin: auto;
+    padding: 90px 30px;
+}
+
+.section h2 {
+    font-size: 36px;
+    margin-bottom: 45px;
+}
+
+
+/* ------------------------------
+   ABOUT
+------------------------------ */
+
+.about-content {
+    max-width: 750px;
+}
+
+.about-text p {
+    color: #666666;
+    margin-bottom: 18px;
+}
+
+
+/* ------------------------------
+   PROJECTS
+------------------------------ */
+
+.projects-section {
+    background: #fafafa;
+    max-width: none;
+    padding-left: calc((100% - 1040px) / 2);
+    padding-right: calc((100% - 1040px) / 2);
+}
+
+.project-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.project-card {
+    background: white;
+    border: 1px solid #eeeeee;
+    border-radius: 8px;
+    overflow: hidden;
+
+    transition: 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.project-image {
+    height: 220px;
+    background: #eeeeee;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #888888;
+}
+
+.project-content {
+    padding: 25px;
+}
+
+.project-content h3 {
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.project-content p {
+    color: #666666;
+    margin-bottom: 20px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.tags span {
+    background: #eeeeee;
+    padding: 5px 10px;
+    border-radius: 4px;
+
+    font-size: 13px;
+}
+
+.project-link {
+    text-decoration: none;
+    color: #222222;
+    font-weight: bold;
+}
+
+.coming-soon {
+    display: flex;
+    align-items: center;
+}
+
+
+/* ------------------------------
+   SKILLS
+------------------------------ */
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.skill {
+    border: 1px solid #eeeeee;
+    padding: 25px;
+    border-radius: 8px;
+}
+
+.skill h3 {
+    margin-bottom: 8px;
+}
+
+.skill p {
+    color: #777777;
+    font-size: 14px;
+}
+
+
+/* ------------------------------
+   EDUCATION
+------------------------------ */
+
+.education-card {
+    border-left: 3px solid #222222;
+    padding-left: 25px;
+}
+
+.education-card h3 {
+    margin-bottom: 8px;
+}
+
+.education-card p {
+    color: #666666;
+}
+
+
+/* ------------------------------
+   CONTACT
+------------------------------ */
+
+.contact {
+    text-align: center;
+}
+
+.contact > p {
+    max-width: 600px;
+    margin: auto;
+    color: #666666;
+}
+
+.contact-links {
+    margin-top: 30px;
+
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.contact-links a {
+    text-decoration: none;
+    color: #222222;
+
+    border: 1px solid #222222;
+    padding: 10px 25px;
+    border-radius: 5px;
+
+    transition: 0.3s;
+}
+
+.contact-links a:hover {
+    background: #222222;
+    color: white;
+}
+
+
+/* ------------------------------
+   FOOTER
+------------------------------ */
+
+footer {
+    text-align: center;
+    padding: 30px;
+    border-top: 1px solid #eeeeee;
+
+    color: #777777;
+    font-size: 14px;
+}
+
+
+/* ------------------------------
+   MOBILE RESPONSIVE
+------------------------------ */
+
+@media (max-width: 800px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero {
+        min-height: 500px;
+        padding: 70px 25px;
+    }
+
+    .hero h1 {
+        font-size: 45px;
+    }
+
+    .hero h3 {
+        font-size: 19px;
+    }
+
+    .section {
+        padding: 70px 25px;
+    }
+
+    .projects-section {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .project-container {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .section h2 {
+        font-size: 30px;
+    }
+
+    .skills-container {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-links {
+        font-size: 14px;
+    }
+
+}
