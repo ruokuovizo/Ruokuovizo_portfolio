@@ -1,0 +1,1761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ruokuovizo Pienyu | EEE Student Portfolio</title>
+
+    <style>
+
+        /* ================================
+           RESET
+        ================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f6f5f1;
+            color: #171717;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+
+        /* ================================
+           CONTAINER
+        ================================= */
+
+        .container {
+            width: 90%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-label {
+            font-size: 0.72rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #888;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            line-height: 1;
+            letter-spacing: -2px;
+            margin-bottom: 20px;
+        }
+
+
+        /* ================================
+           NAVIGATION
+        ================================= */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: rgba(246, 245, 241, 0.92);
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid #deddd8;
+        }
+
+        .nav-inner {
+            max-width: 1150px;
+            width: 90%;
+            height: 72px;
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            font-size: 1.35rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .brand span {
+            color: #b43b32;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            color: #555;
+            transition: 0.25s ease;
+        }
+
+        .nav-links a:hover {
+            color: #b43b32;
+        }
+
+
+        /* ================================
+           HERO
+        ================================= */
+
+        .hero {
+            min-height: calc(100vh - 72px);
+            display: flex;
+            align-items: center;
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+
+            width: 500px;
+            height: 500px;
+
+            border-radius: 50%;
+
+            background: #e8e6df;
+
+            right: -200px;
+            top: 100px;
+
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero-tag {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+
+            color: #777;
+            text-transform: uppercase;
+
+            margin-bottom: 28px;
+        }
+
+        .hero-tag::before {
+            content: "";
+            width: 38px;
+            height: 2px;
+            background: #b43b32;
+        }
+
+        .hero h1 {
+            font-size: clamp(4rem, 10vw, 8rem);
+            line-height: 0.85;
+            letter-spacing: -6px;
+            margin-bottom: 35px;
+        }
+
+        .hero h1 span {
+            color: #b43b32;
+        }
+
+        .hero-description {
+            max-width: 650px;
+            font-size: 1.25rem;
+            color: #5d5d5d;
+            margin-bottom: 35px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-block;
+
+            padding: 13px 22px;
+
+            border-radius: 7px;
+
+            border: 1px solid #171717;
+
+            font-size: 0.9rem;
+            font-weight: 700;
+
+            transition: 0.25s ease;
+        }
+
+        .button-dark {
+            background: #171717;
+            color: white;
+        }
+
+        .button-dark:hover {
+            background: #b43b32;
+            border-color: #b43b32;
+            transform: translateY(-3px);
+        }
+
+        .button-light:hover {
+            background: #171717;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+
+        /* ================================
+           ABOUT
+        ================================= */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 80px;
+        }
+
+        .about-text {
+            color: #5f5f5f;
+            font-size: 1.05rem;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        .highlight {
+            border-left: 3px solid #b43b32;
+            padding-left: 22px;
+
+            color: #222;
+
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+
+        /* ================================
+           SKILLS
+        ================================= */
+
+        .skills-grid {
+            margin-top: 45px;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: white;
+
+            border: 1px solid #deddd8;
+            border-radius: 14px;
+
+            padding: 30px;
+
+            transition: 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-6px);
+
+            box-shadow:
+                0 20px 45px rgba(0,0,0,0.07);
+        }
+
+        .skill-number {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            color: #aaa;
+            font-weight: 700;
+        }
+
+        .skill-card h3 {
+            margin: 15px 0 10px;
+            font-size: 1.3rem;
+        }
+
+        .skill-card p {
+            color: #666;
+        }
+
+
+        /* ================================
+           PROJECT
+        ================================= */
+
+        .project-card {
+            margin-top: 50px;
+
+            background: white;
+
+            border: 1px solid #deddd8;
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 20px 60px rgba(0,0,0,0.05);
+        }
+
+
+        /* PROJECT HEADER */
+
+        .project-header {
+            padding: 60px;
+
+            border-bottom: 1px solid #deddd8;
+        }
+
+        .project-identity {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+
+        /* ================================
+           REAL SHAWL LOGO
+        ================================= */
+
+        .shawl-logo {
+            width: 150px;
+            height: 150px;
+
+            min-width: 150px;
+
+            border-radius: 18px;
+
+            overflow: hidden;
+
+            border: 4px solid #171717;
+
+            background: #222;
+
+            box-shadow:
+                0 15px 35px rgba(0,0,0,0.15);
+
+            transition: 0.35s ease;
+        }
+
+        .shawl-logo:hover {
+            transform: rotate(-2deg) scale(1.04);
+        }
+
+        .shawl-logo img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+        .project-category {
+            font-size: 0.72rem;
+
+            letter-spacing: 2.5px;
+
+            font-weight: 700;
+
+            color: #888;
+        }
+
+        .project-name {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+
+            line-height: 0.95;
+
+            letter-spacing: -3px;
+
+            margin: 12px 0 18px;
+        }
+
+        .project-description {
+            max-width: 650px;
+
+            color: #666;
+
+            font-size: 1.05rem;
+        }
+
+
+        /* ================================
+           PROJECT BODY
+        ================================= */
+
+        .project-body {
+            display: grid;
+            grid-template-columns: 1.5fr 0.75fr;
+        }
+
+        .project-main {
+            padding: 55px;
+
+            border-right: 1px solid #deddd8;
+        }
+
+        .project-sidebar {
+            padding: 55px 40px;
+
+            background: #faf9f5;
+        }
+
+        .project-section {
+            margin-bottom: 60px;
+        }
+
+        .project-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .project-section h3 {
+            font-size: 1.6rem;
+
+            margin-bottom: 14px;
+
+            letter-spacing: -0.5px;
+        }
+
+        .project-section > p {
+            color: #626262;
+        }
+
+
+        /* ================================
+           PROCESS
+        ================================= */
+
+        .process-grid {
+            margin-top: 25px;
+
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .process {
+            background: #f5f4ef;
+
+            border: 1px solid #e1e0db;
+
+            border-radius: 10px;
+
+            padding: 22px;
+        }
+
+        .process-number {
+            font-size: 0.7rem;
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+            color: #aaa;
+        }
+
+        .process h4 {
+            margin: 10px 0 6px;
+        }
+
+        .process p {
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+
+        /* ================================
+           MODEL FLOW
+        ================================= */
+
+        .flow {
+            margin-top: 25px;
+
+            display: flex;
+            align-items: center;
+
+            gap: 9px;
+
+            flex-wrap: wrap;
+        }
+
+        .flow-box {
+            background: #171717;
+
+            color: white;
+
+            padding: 11px 15px;
+
+            border-radius: 6px;
+
+            font-size: 0.8rem;
+
+            font-weight: 700;
+        }
+
+        .arrow {
+            color: #999;
+            font-size: 1.2rem;
+        }
+
+
+        /* ================================
+           RESULTS
+        ================================= */
+
+        .results {
+            margin-top: 25px;
+
+            border: 1px solid #deddd8;
+
+            border-radius: 10px;
+
+            overflow: hidden;
+        }
+
+        .result {
+            display: grid;
+            grid-template-columns: 1fr 120px;
+
+            padding: 14px 18px;
+
+            border-bottom: 1px solid #e8e7e2;
+
+            font-size: 0.9rem;
+        }
+
+        .result:last-child {
+            border-bottom: none;
+        }
+
+        .result-head {
+            background: #f1f0eb;
+
+            font-size: 0.7rem;
+
+            font-weight: 700;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+        }
+
+        .result-best {
+            background: #ebe9e2;
+            font-weight: 700;
+        }
+
+        .best-result {
+            display: inline-block;
+
+            margin-top: 20px;
+
+            padding: 18px 22px;
+
+            background: #171717;
+
+            color: white;
+
+            border-radius: 10px;
+        }
+
+        .best-result small {
+            display: block;
+
+            color: #aaa;
+
+            font-size: 0.65rem;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 5px;
+        }
+
+        .best-result strong {
+            display: block;
+
+            font-size: 2.1rem;
+        }
+
+        .best-result span {
+            color: #ccc;
+
+            font-size: 0.85rem;
+        }
+
+
+        /* ================================
+           SIDEBAR
+        ================================= */
+
+        .sidebar-title {
+            font-size: 1.25rem;
+            margin-bottom: 25px;
+        }
+
+        .feature {
+            display: flex;
+
+            gap: 14px;
+
+            margin-bottom: 25px;
+        }
+
+        .feature-number {
+            width: 32px;
+            height: 32px;
+
+            min-width: 32px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: #e7e5df;
+
+            font-size: 0.7rem;
+
+            font-weight: 700;
+        }
+
+        .feature h4 {
+            margin-bottom: 3px;
+        }
+
+        .feature p {
+            font-size: 0.85rem;
+            color: #777;
+        }
+
+        .project-note {
+            margin-top: 35px;
+
+            padding: 25px;
+
+            border-radius: 12px;
+
+            background: #ebe9e2;
+        }
+
+        .project-note h4 {
+            margin-bottom: 10px;
+        }
+
+        .project-note p {
+            color: #666;
+            font-size: 0.88rem;
+        }
+
+
+        /* ================================
+           EDUCATION
+        ================================= */
+
+        .education-card {
+            margin-top: 45px;
+
+            background: white;
+
+            border: 1px solid #deddd8;
+
+            border-radius: 14px;
+
+            padding: 35px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 30px;
+        }
+
+        .education-card h3 {
+            margin-bottom: 7px;
+        }
+
+        .education-card p {
+            color: #666;
+        }
+
+        .education-label {
+            color: #999;
+
+            font-size: 0.8rem;
+
+            font-weight: 700;
+
+            white-space: nowrap;
+        }
+
+
+        /* ================================
+           CONTACT
+        ================================= */
+
+        .contact {
+            background: #171717;
+
+            color: white;
+
+            border-radius: 20px;
+
+            padding: 65px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 40px;
+        }
+
+        .contact .section-label {
+            color: #999;
+        }
+
+        .contact h2 {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+
+            line-height: 0.95;
+
+            letter-spacing: -3px;
+
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            color: #aaa;
+            max-width: 550px;
+        }
+
+        .email-button {
+            background: white;
+
+            color: #171717;
+
+            padding: 15px 22px;
+
+            border-radius: 7px;
+
+            font-weight: 700;
+
+            white-space: nowrap;
+
+            transition: 0.25s ease;
+        }
+
+        .email-button:hover {
+            background: #b43b32;
+
+            color: white;
+
+            transform: translateY(-3px);
+        }
+
+
+        /* ================================
+           FOOTER
+        ================================= */
+
+        footer {
+            padding: 35px 0;
+
+            border-top: 1px solid #deddd8;
+        }
+
+        .footer-inner {
+            width: 90%;
+            max-width: 1150px;
+
+            margin: auto;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            color: #777;
+
+            font-size: 0.85rem;
+        }
+
+
+        /* ================================
+           MOBILE
+        ================================= */
+
+        @media (max-width: 850px) {
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-body {
+                grid-template-columns: 1fr;
+            }
+
+            .project-main {
+                border-right: none;
+                border-bottom: 1px solid #deddd8;
+            }
+
+            .contact {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+
+        @media (max-width: 650px) {
+
+            .nav-inner {
+                height: auto;
+
+                padding: 18px 0;
+
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                letter-spacing: -4px;
+            }
+
+            .project-header {
+                padding: 35px 25px;
+            }
+
+            .project-main {
+                padding: 35px 25px;
+            }
+
+            .project-sidebar {
+                padding: 35px 25px;
+            }
+
+            .project-identity {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .shawl-logo {
+                width: 125px;
+                height: 125px;
+                min-width: 125px;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .education-card {
+                flex-direction: column;
+            }
+
+            .contact {
+                padding: 40px 25px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVIGATION
+====================================================== -->
+
+<nav>
+
+    <div class="nav-inner">
+
+        <a href="#home" class="brand">
+            Ruokuovizo<span>.</span>
+        </a>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#skills">Skills</a>
+            </li>
+
+            <li>
+                <a href="#projects">Projects</a>
+            </li>
+
+            <li>
+                <a href="#education">Education</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================================
+     HERO
+====================================================== -->
+
+<section class="hero" id="home">
+
+    <div class="container">
+
+        <div class="hero-content">
+
+            <div class="hero-tag">
+                Electrical & Electronics Engineering
+            </div>
+
+            <h1>
+                Hi, I'm<br>
+                Ruokuovizo<span>.</span>
+            </h1>
+
+            <p class="hero-description">
+                An Electrical and Electronics Engineering student
+                exploring programming, machine learning, computer
+                vision and practical engineering projects.
+            </p>
+
+            <div class="buttons">
+
+                <a
+                    href="#projects"
+                    class="button button-dark"
+                >
+                    View My Work
+                </a>
+
+                <a
+                    href="#contact"
+                    class="button button-light"
+                >
+                    Contact Me
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ABOUT
+====================================================== -->
+
+<section class="section" id="about">
+
+    <div class="container">
+
+        <div class="about-grid">
+
+            <div>
+
+                <div class="section-label">
+                    01 — About
+                </div>
+
+                <h2 class="section-title">
+                    Engineering student.
+                    <br>
+                    Curious builder.
+                </h2>
+
+            </div>
+
+
+            <div class="about-text">
+
+                <p>
+                    I am an Electrical and Electronics Engineering
+                    student at NIT Nagaland with an interest in
+                    technology, programming and practical engineering
+                    applications.
+                </p>
+
+                <p>
+                    My projects allow me to combine engineering
+                    concepts with software tools, machine learning
+                    and image-based applications.
+                </p>
+
+                <div class="highlight">
+                    I learn by building, experimenting, testing
+                    and improving.
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SKILLS
+====================================================== -->
+
+<section class="section" id="skills">
+
+    <div class="container">
+
+        <div class="section-label">
+            02 — Skills
+        </div>
+
+        <h2 class="section-title">
+            Tools I work with.
+        </h2>
+
+
+        <div class="skills-grid">
+
+
+            <div class="skill-card">
+
+                <span class="skill-number">
+                    01
+                </span>
+
+                <h3>
+                    Programming
+                </h3>
+
+                <p>
+                    Python<br>
+                    MATLAB
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <span class="skill-number">
+                    02
+                </span>
+
+                <h3>
+                    Development
+                </h3>
+
+                <p>
+                    VS Code<br>
+                    Google Colab
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <span class="skill-number">
+                    03
+                </span>
+
+                <h3>
+                    Engineering
+                </h3>
+
+                <p>
+                    Multisim<br>
+                    Electrical & Electronics concepts
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PROJECTS
+====================================================== -->
+
+<section class="section" id="projects">
+
+    <div class="container">
+
+        <div class="section-label">
+            03 — Selected Project
+        </div>
+
+        <h2 class="section-title">
+            Featured work.
+        </h2>
+
+
+
+        <div class="project-card">
+
+
+            <!-- PROJECT HEADER -->
+
+            <div class="project-header">
+
+                <div class="project-identity">
+
+
+                    <!-- REAL SHAWL LOGO -->
+
+                    <div class="shawl-logo">
+
+                        <img
+                            src="images/shawl-logo-real-pattern.png"
+                            alt="Traditional Naga shawl pattern"
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <div class="project-category">
+                            MACHINE LEARNING • COMPUTER VISION
+                        </div>
+
+                        <h2 class="project-name">
+                            Naga Shawl
+                            Identification
+                        </h2>
+
+                        <p class="project-description">
+                            An image-based machine-learning project
+                            for identifying traditional Naga shawl
+                            patterns using feature extraction and
+                            classifier evaluation.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PROJECT CONTENT -->
+
+            <div class="project-body">
+
+
+                <main class="project-main">
+
+
+                    <!-- OVERVIEW -->
+
+                    <div class="project-section">
+
+                        <h3>
+                            Project Overview
+                        </h3>
+
+                        <p>
+                            The project explores image-based
+                            identification of Naga shawls.
+                            EfficientNetV2 is used for feature
+                            extraction, followed by evaluation
+                            of different machine-learning
+                            classifiers.
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- DEVELOPMENT PROCESS -->
+
+                    <div class="project-section">
+
+                        <h3>
+                            Development Process
+                        </h3>
+
+
+                        <div class="process-grid">
+
+
+                            <div class="process">
+
+                                <span class="process-number">
+                                    01
+                                </span>
+
+                                <h4>
+                                    Image Input
+                                </h4>
+
+                                <p>
+                                    Shawl images are provided as
+                                    input to the identification
+                                    system.
+                                </p>
+
+                            </div>
+
+
+                            <div class="process">
+
+                                <span class="process-number">
+                                    02
+                                </span>
+
+                                <h4>
+                                    Feature Extraction
+                                </h4>
+
+                                <p>
+                                    EfficientNetV2 extracts
+                                    meaningful features from
+                                    the shawl images.
+                                </p>
+
+                            </div>
+
+
+                            <div class="process">
+
+                                <span class="process-number">
+                                    03
+                                </span>
+
+                                <h4>
+                                    Classifier Testing
+                                </h4>
+
+                                <p>
+                                    Different classifiers are
+                                    tested using the extracted
+                                    features.
+                                </p>
+
+                            </div>
+
+
+                            <div class="process">
+
+                                <span class="process-number">
+                                    04
+                                </span>
+
+                                <h4>
+                                    Evaluation
+                                </h4>
+
+                                <p>
+                                    Classifier performance is
+                                    compared using accuracy.
+                                </p>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- MODEL FLOW -->
+
+                    <div class="project-section">
+
+                        <h3>
+                            Model Flow
+                        </h3>
+
+                        <p>
+                            The overall process uses EfficientNetV2
+                            for feature extraction before passing
+                            the extracted features to a classifier.
+                        </p>
+
+
+                        <div class="flow">
+
+                            <div class="flow-box">
+                                Shawl Image
+                            </div>
+
+                            <div class="arrow">
+                                →
+                            </div>
+
+                            <div class="flow-box">
+                                EfficientNetV2
+                            </div>
+
+                            <div class="arrow">
+                                →
+                            </div>
+
+                            <div class="flow-box">
+                                Feature Extraction
+                            </div>
+
+                            <div class="arrow">
+                                →
+                            </div>
+
+                            <div class="flow-box">
+                                Classifier
+                            </div>
+
+                            <div class="arrow">
+                                →
+                            </div>
+
+                            <div class="flow-box">
+                                Prediction
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- RESULTS -->
+
+                    <div class="project-section">
+
+                        <h3>
+                            Model Evaluation
+                        </h3>
+
+                        <p>
+                            Classifiers were evaluated using
+                            features extracted by EfficientNetV2.
+                        </p>
+
+
+                        <div class="results">
+
+
+                            <div class="result result-head">
+
+                                <span>
+                                    Classifier
+                                </span>
+
+                                <span>
+                                    Accuracy
+                                </span>
+
+                            </div>
+
+
+                            <div class="result">
+
+                                <span>
+                                    Random Forest
+                                </span>
+
+                                <span>
+                                    95.71%
+                                </span>
+
+                            </div>
+
+
+                            <div class="result">
+
+                                <span>
+                                    XGBoost
+                                </span>
+
+                                <span>
+                                    93.09%
+                                </span>
+
+                            </div>
+
+
+                            <div class="result">
+
+                                <span>
+                                    LSVM
+                                </span>
+
+                                <span>
+                                    98.69%
+                                </span>
+
+                            </div>
+
+
+                            <div class="result result-best">
+
+                                <span>
+                                    SVC
+                                </span>
+
+                                <span>
+                                    99.05%
+                                </span>
+
+                            </div>
+
+
+                            <div class="result">
+
+                                <span>
+                                    MLP
+                                </span>
+
+                                <span>
+                                    98.33%
+                                </span>
+
+                            </div>
+
+
+                            <div class="result">
+
+                                <span>
+                                    LSTM
+                                </span>
+
+                                <span>
+                                    91.42%
+                                </span>
+
+                            </div>
+
+
+                            <div class="result">
+
+                                <span>
+                                    Bi-LSTM
+                                </span>
+
+                                <span>
+                                    94.87%
+                                </span>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="best-result">
+
+                            <small>
+                                BEST RESULT
+                            </small>
+
+                            <strong>
+                                99.05%
+                            </strong>
+
+                            <span>
+                                EfficientNetV2 + SVC
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                </main>
+
+
+
+                <!-- PROJECT SIDEBAR -->
+
+                <aside class="project-sidebar">
+
+
+                    <h3 class="sidebar-title">
+                        Project Features
+                    </h3>
+
+
+                    <div class="feature">
+
+                        <div class="feature-number">
+                            01
+                        </div>
+
+                        <div>
+
+                            <h4>
+                                Shawl Identification
+                            </h4>
+
+                            <p>
+                                Image-based identification
+                                of Naga shawl patterns.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="feature">
+
+                        <div class="feature-number">
+                            02
+                        </div>
+
+                        <div>
+
+                            <h4>
+                                Shawl Viewing
+                            </h4>
+
+                            <p>
+                                Feature for viewing different
+                                shawl designs.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="feature">
+
+                        <div class="feature-number">
+                            03
+                        </div>
+
+                        <div>
+
+                            <h4>
+                                Machine Learning
+                            </h4>
+
+                            <p>
+                                Feature extraction and classifier
+                                evaluation for image identification.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="project-note">
+
+                        <h4>
+                            What This Project Represents
+                        </h4>
+
+                        <p>
+                            The project combines image processing,
+                            EfficientNetV2 feature extraction and
+                            machine-learning classification to
+                            explore identification of traditional
+                            Naga shawl patterns.
+                        </p>
+
+                    </div>
+
+
+                </aside>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     EDUCATION
+====================================================== -->
+
+<section class="section" id="education">
+
+    <div class="container">
+
+        <div class="section-label">
+            04 — Education
+        </div>
+
+        <h2 class="section-title">
+            Academic background.
+        </h2>
+
+
+        <div class="education-card">
+
+            <div>
+
+                <h3>
+                    B.Tech — Electrical & Electronics Engineering
+                </h3>
+
+                <p>
+                    National Institute of Technology Nagaland
+                </p>
+
+            </div>
+
+            <div class="education-label">
+                NIT Nagaland
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTACT
+====================================================== -->
+
+<section class="section" id="contact">
+
+    <div class="container">
+
+        <div class="contact">
+
+
+            <div>
+
+                <div class="section-label">
+                    05 — Contact
+                </div>
+
+                <h2>
+                    Let's connect.
+                </h2>
+
+                <p>
+                    Interested in my work or want to get in touch?
+                    Feel free to send me an email.
+                </p>
+
+            </div>
+
+
+            <a
+                href="mailto:fox863207@gmail.com"
+                class="email-button"
+            >
+                fox863207@gmail.com
+            </a>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+====================================================== -->
+
+<footer>
+
+    <div class="footer-inner">
+
+        <span>
+            © 2026 Ruokuovizo Pienyu
+        </span>
+
+        <span>
+            Electrical & Electronics Engineering
+        </span>
+
+    </div>
+
+</footer>
+
+
+</body>
+</html>
